@@ -10,10 +10,35 @@
     <StartupObject>Json_Editor.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="CodeBeautify.cs" />
+    <Compile Remove="CustomIdeRtb.cs" />
+    <Compile Remove="CustomIdeRtb.Designer.cs" />
+    <Compile Remove="JSonFileHandler.cs" />
+    <Compile Remove="JsonToTreeView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="CustomIdeRtb.resx" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\JEapp.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JEapp.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings1.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -24,10 +49,25 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoCompleteMenu-ScintillaNET" Version="2.1.1" />
+    <PackageReference Include="Enhanced_Tab_Control" Version="1.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Scintilla5.NET" Version="5.3.3.15" />
     <PackageReference Include="ScintillaDiff.NET" Version="1.1.14" />
+    <PackageReference Include="ScintillaNET_FindReplaceDialog" Version="1.5.5" />
     <PackageReference Include="VPKSoft.ScintillaLexers.NET" Version="1.1.16" />
-    <PackageReference Include="VPKSoft.ScintillaTabbedTextControl.NET" Version="1.1.14" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\JEapp.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>JEapp.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Properties\Settings1.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>

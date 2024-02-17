@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Json_Editor.Properties" GeneratedClassName="Settings1">
+  <Profiles />
+  <Settings>
+    <Setting Name="MarginBackcolor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">12, 12, 12</Value>
+    </Setting>
+    <Setting Name="CaretStyle" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="EditorBC" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">63, 63, 63</Value>
+    </Setting>
+    <Setting Name="LineNumBc" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">12, 12, 12</Value>
+    </Setting>
+    <Setting Name="LineNumFc" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">Red</Value>
+    </Setting>
+    <Setting Name="uEditorBC" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">63, 63, 63</Value>
+    </Setting>
+    <Setting Name="uLineNumBc" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">12, 12, 12</Value>
+    </Setting>
+    <Setting Name="uLineNumFc" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Red</Value>
+    </Setting>
+    <Setting Name="Font" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Helvetica</Value>
+    </Setting>
+    <Setting Name="FontStyleb" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="uFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="uFontStyleb" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FontSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="uFontSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="FontStylei" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="uFontStylei" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DeFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Helvetica, 12pt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

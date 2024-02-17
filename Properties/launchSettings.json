@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Json Editor": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false,
+      "nativeDebugging": false
+    }
+  }
+}
