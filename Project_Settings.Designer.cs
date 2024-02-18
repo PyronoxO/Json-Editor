@@ -50,6 +50,7 @@ namespace Json_Editor
             colorDialog1 = new ColorDialog();
             fontDialog1 = new FontDialog();
             Fonts = new GroupBox();
+            label5 = new Label();
             button1 = new Button();
             groupBox2 = new GroupBox();
             UU_Folder = new Button();
@@ -60,7 +61,6 @@ namespace Json_Editor
             textBox1 = new TextBox();
             label10 = new Label();
             label9 = new Label();
-            label5 = new Label();
             groupBox1.SuspendLayout();
             Fonts.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -252,6 +252,15 @@ namespace Json_Editor
             Fonts.TabStop = false;
             Fonts.Text = "Fonts";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(163, 47);
+            label5.Name = "label5";
+            label5.Size = new Size(34, 20);
+            label5.TabIndex = 9;
+            label5.Text = "Lfnt";
+            // 
             // button1
             // 
             button1.ForeColor = Color.Black;
@@ -367,15 +376,6 @@ namespace Json_Editor
             label9.TabIndex = 0;
             label9.Text = "Unpacked Game Data";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(163, 47);
-            label5.Name = "label5";
-            label5.Size = new Size(34, 20);
-            label5.TabIndex = 9;
-            label5.Text = "Lfnt";
-            // 
             // Project_Settings
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -429,5 +429,7 @@ namespace Json_Editor
         private Label label11;
         private Button button1;
         private Label label5;
+        private Label Lfnt;
+
     }
     }
