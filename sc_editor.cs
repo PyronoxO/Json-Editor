@@ -599,7 +599,7 @@ namespace Json_Editor
             scintilla1.Styles[Style.Default].Bold = Properties.Settings1.Default.DeFont.Bold;
             scintilla1.Styles[Style.Default].ForeColor = Properties.Settings1.Default.Dforecolor;
             scintilla1.Styles[Style.Default].BackColor = Properties.Settings1.Default.EditorBC;
-           
+
 
             scintilla1.StyleClearAll();
 
