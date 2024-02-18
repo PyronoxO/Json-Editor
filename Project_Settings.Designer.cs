@@ -46,6 +46,7 @@ namespace Json_Editor
             label2 = new Label();
             SavButton = new Button();
             label8 = new Label();
+           
             label4 = new Label();
             colorDialog1 = new ColorDialog();
             fontDialog1 = new FontDialog();
@@ -146,6 +147,7 @@ namespace Json_Editor
             CaretCb.Name = "CaretCb";
             CaretCb.Size = new Size(98, 28);
             CaretCb.TabIndex = 1;
+            CaretCb.SelectedValueChanged +=  CaretCb_SelectedValueChanged ;
             // 
             // label11
             // 
@@ -216,6 +218,18 @@ namespace Json_Editor
             label8.TabIndex = 0;
             label8.Text = "Mod Folder";
             // 
+            // Lfn
+            // 
+            Lfn.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
+            Lfn.AutoSize = true;
+            Lfn.Font = new Font("Segoe UI", 14.25F);
+            Lfn.ForeColor = Color.White;
+            Lfn.Location = new Point(125, 41);
+            Lfn.Name = "Lfn";
+            Lfn.Size = new Size(93, 25);
+            Lfn.TabIndex = 0;
+            Lfn.Text = "Font Type";
+            // 
             // label4
             // 
             label4.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
@@ -243,6 +257,7 @@ namespace Json_Editor
             Fonts.Controls.Add(Lfn);
             Fonts.Controls.Add(button1);
             Fonts.Controls.Add(label4);
+            Fonts.Controls.Add(Lfn);
             Fonts.ForeColor = Color.White;
             Fonts.Location = new Point(12, 272);
             Fonts.Name = "Fonts";
@@ -404,6 +419,7 @@ namespace Json_Editor
         private GroupBox groupBox1;
         private Label label8;
         private Label label7;
+        private Label Lfn;
         private Label label4;
         private Label label3;
         private Label label2;

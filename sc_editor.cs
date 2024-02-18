@@ -4,6 +4,12 @@ using Newtonsoft.Json.Linq;
 using ScintillaNET;
 using ScintillaNET_FindReplaceDialog;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows;
+using VPKSoft.ScintillaLexers.CreateSpecificLexer;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Reflection;
 
 namespace Json_Editor
 {
@@ -585,16 +591,22 @@ namespace Json_Editor
             // Configure thejson style
 
             scintilla1.StyleResetDefault();
-
-            string? Fnt = Properties.Settings1.Default.DeFont.OriginalFontName;
-            scintilla1.Styles[Style.Default].Font = Fnt;
+            scintilla1.StyleResetDefault();
+            string? tt = Properties.Settings1.Default.DeFont.OriginalFontName;
+            scintilla1.Styles[Style.Default].Font = tt;
             scintilla1.Styles[Style.Default].SizeF = Properties.Settings1.Default.DeFont.Size;
             scintilla1.Styles[Style.Default].Italic = Properties.Settings1.Default.DeFont.Italic;
             scintilla1.Styles[Style.Default].Bold = Properties.Settings1.Default.DeFont.Bold;
+            scintilla1.Styles[Style.Default].ForeColor = Properties.Settings1.Default.Dforecolor;
             scintilla1.Styles[Style.Default].BackColor = Properties.Settings1.Default.EditorBC;
+           
+
             scintilla1.StyleClearAll();
-            scintilla1.StyleClearAll();
+
+
+
             scintilla1.LexerName = "json";
+
             scintilla1.SetKeywords(0, "false true");
             scintilla1.SetProperty("lexer.json.allow.comments", "1");
             scintilla1.SetProperty("lexer.json.escape.sequence", "1");
