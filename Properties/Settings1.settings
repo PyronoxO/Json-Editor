@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="MarginBackcolor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">12, 12, 12</Value>
+      <Value Profile="(Default)">Pink</Value>
     </Setting>
     <Setting Name="CaretStyle" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -26,32 +26,11 @@
     <Setting Name="uLineNumFc" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Red</Value>
     </Setting>
-    <Setting Name="Font" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Helvetica</Value>
-    </Setting>
-    <Setting Name="FontStyleb" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="uFont" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="uFontStyleb" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="FontSize" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">12</Value>
-    </Setting>
-    <Setting Name="uFontSize" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">12</Value>
-    </Setting>
-    <Setting Name="FontStylei" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="uFontStylei" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="DeFont" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Helvetica, 12pt</Value>
+    </Setting>
+    <Setting Name="Dforecolor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
     </Setting>
   </Settings>
 </SettingsFile>

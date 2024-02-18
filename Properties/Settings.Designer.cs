@@ -22,5 +22,17 @@ namespace Json_Editor.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("32, 32, 32")]
+        public string BackColor {
+            get {
+                return ((string)(this["BackColor"]));
+            }
+            set {
+                this["BackColor"] = value;
+            }
+        }
     }
 }

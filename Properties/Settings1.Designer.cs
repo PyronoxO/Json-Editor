@@ -25,7 +25,7 @@ namespace Json_Editor.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12, 12, 12")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Pink")]
         public global::System.Drawing.Color MarginBackcolor {
             get {
                 return ((global::System.Drawing.Color)(this["MarginBackcolor"]));
@@ -110,90 +110,6 @@ namespace Json_Editor.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Helvetica")]
-        public string Font {
-            get {
-                return ((string)(this["Font"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool FontStyleb {
-            get {
-                return ((bool)(this["FontStyleb"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string uFont {
-            get {
-                return ((string)(this["uFont"]));
-            }
-            set {
-                this["uFont"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool uFontStyleb {
-            get {
-                return ((bool)(this["uFontStyleb"]));
-            }
-            set {
-                this["uFontStyleb"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12")]
-        public int FontSize {
-            get {
-                return ((int)(this["FontSize"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12")]
-        public int uFontSize {
-            get {
-                return ((int)(this["uFontSize"]));
-            }
-            set {
-                this["uFontSize"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool FontStylei {
-            get {
-                return ((bool)(this["FontStylei"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool uFontStylei {
-            get {
-                return ((bool)(this["uFontStylei"]));
-            }
-            set {
-                this["uFontStylei"] = value;
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Helvetica, 12pt")]
@@ -203,6 +119,18 @@ namespace Json_Editor.Properties {
             }
             set {
                 this["DeFont"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        public global::System.Drawing.Color Dforecolor {
+            get {
+                return ((global::System.Drawing.Color)(this["Dforecolor"]));
+            }
+            set {
+                this["Dforecolor"] = value;
             }
         }
     }

@@ -28,24 +28,7 @@ namespace Json_Editor
             Ebc.BackColor = Properties.Settings1.Default.EditorBC;
             Lnc.BackColor = Properties.Settings1.Default.uLineNumFc;
             Lnbc.BackColor = Properties.Settings1.Default.uLineNumBc;
-
-            FontCb.DisplayMember = "Name";
-            FontCb.ValueMember = "Name"; // Set the ValueMember to the font name
-            FontCb.DataSource = new InstalledFontCollection().Families;
-            FsCb.SelectedItem = Properties.Settings1.Default.uFontSize.ToString();
-
-            if (!Properties.Settings1.Default.uFontStyleb && !Properties.Settings1.Default.uFontStylei)
-            {
-                radioButton1.Checked = true;
-            }
-            else if (Properties.Settings1.Default.uFontStyleb && !Properties.Settings1.Default.uFontStylei)
-            {
-                radioButton2.Checked = true;
-            }
-            else if (!Properties.Settings1.Default.uFontStyleb && Properties.Settings1.Default.uFontStylei)
-            {
-                radioButton3.Checked = true;
-            }
+            Lfn.Text = ( Properties.Settings1.Default.DeFont.OriginalFontName + " " + "Click To Change" );
         }
 
         #region Control Handlers
@@ -103,125 +86,20 @@ namespace Json_Editor
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (Properties.Settings1.Default.uFontStyleb)
-            {
-                fontDialog1.Font = new Font(Properties.Settings1.Default.uFont.ToString(), Properties.Settings1.Default.uFontSize, System.Drawing.FontStyle.Bold);
-            }
-            else
-            {
-                fontDialog1.Font = new Font(Properties.Settings1.Default.uFont.ToString(), Properties.Settings1.Default.uFontSize, System.Drawing.FontStyle.Regular);
-            }
-
-            if (fontDialog1.ShowDialog() == DialogResult.OK)
-
-            {
-                Properties.Settings1.Default.uFont = fontDialog1.Font.Name;
-                if (fontDialog1.Font.Style == FontStyle.Bold)
-                {
-                    Properties.Settings1.Default.uFontStyleb = true;
-                }
-                else
-                {
-                    Properties.Settings1.Default.uFontStyleb = false;
-                }
-            }
-
-            Properties.Settings1.Default.uFontSize = ( int )fontDialog1.Font.Size;
-        }
-
-        private void FontCb_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            if (FontCb.SelectedItem != null)
-            {
-                var selectedFont = ( FontFamily )FontCb.SelectedItem;
-                var fontName = selectedFont.Name; // This will give you just the font name
-
-                Properties.Settings1.Default.uFont = fontName;
-            }
-        }
-
-        private void FsCb_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            int tt = Int32.Parse(FsCb.SelectedItem?.ToString() ?? "0");
-
-            Properties.Settings1.Default.uFontSize = Int32.Parse(FsCb.SelectedItem?.ToString() ?? "0");
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton1.Checked)
-            {
-                radioButton2.Checked = false;
-                radioButton3.Checked = false;
-
-                Properties.Settings1.Default.uFontStyleb = false;
-                Properties.Settings1.Default.uFontStylei = false;
-            }
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton2.Checked)
-            {
-                radioButton1.Checked = false;
-                radioButton3.Checked = false;
-                Properties.Settings1.Default.uFontStyleb = true;
-                Properties.Settings1.Default.uFontStylei = false;
-            }
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton3.Checked)
-            {
-                radioButton1.Checked = false;
-                radioButton2.Checked = false;
-                Properties.Settings1.Default.uFontStyleb = false;
-                Properties.Settings1.Default.uFontStylei = true;
-            }
-        }
-
         #endregion Control Handlers
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             fontDialog1.Font = Properties.Settings1.Default.DeFont;
-            if (fontDialog1.ShowDialog() == DialogResult.OK && fontDialog1.Font.Underline)
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
             {
-
-                Font newFont = new Font(fontDialog1.Font, fontDialog1.Font.Style | FontStyle.Underline);
-
-                // Assign the new font to the DeFont property
-                Properties.Settings1.Default.DeFont = newFont;
-                 
+                Properties.Settings1.Default.DeFont = fontDialog1.Font;
             }
-            else if (fontDialog1.ShowDialog() == DialogResult.OK && fontDialog1.Font.Underline && fontDialog1.Font.Strikeout)
-            {
-                Font newFont = new Font(fontDialog1.Font, fontDialog1.Font.Style | FontStyle.Underline | FontStyle.Strikeout);
-
-                // Assign the new font to the DeFont property
-                Properties.Settings1.Default.DeFont = newFont;
-
-            }
-            else if (fontDialog1.ShowDialog() == DialogResult.OK  && fontDialog1.Font.Strikeout)
-            {
-                Font newFont = new Font(fontDialog1.Font, fontDialog1.Font.Style | FontStyle.Strikeout);
-
-                // Assign the new font to the DeFont property
-                Properties.Settings1.Default.DeFont = newFont;
-
-            }
-            else if (fontDialog1.ShowDialog() == DialogResult.OK)
-            {
-                Properties.Settings1.Default.DeFont = fontDialog1.Font; 
-
-            }
-
-
         }
 
-        
+        private void Project_Settings_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings1.Default.Save();
+        }
     }
 }

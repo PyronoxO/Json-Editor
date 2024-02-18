@@ -44,19 +44,13 @@ namespace Json_Editor
             label7 = new Label();
             label3 = new Label();
             label2 = new Label();
-            FsCb = new ComboBox();
-            radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
-            FontCb = new ComboBox();
             SavButton = new Button();
             label8 = new Label();
-            label6 = new Label();
-            label5 = new Label();
             label4 = new Label();
             colorDialog1 = new ColorDialog();
             fontDialog1 = new FontDialog();
             Fonts = new GroupBox();
+            Lfn = new Label();
             button1 = new Button();
             groupBox2 = new GroupBox();
             UU_Folder = new Button();
@@ -197,69 +191,6 @@ namespace Json_Editor
             label2.TabIndex = 0;
             label2.Text = "Margins Backcolor ";
             // 
-            // FsCb
-            // 
-            FsCb.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
-            FsCb.FormattingEnabled = true;
-            FsCb.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40" });
-            FsCb.Location = new Point(333, 120);
-            FsCb.Name = "FsCb";
-            FsCb.Size = new Size(44, 28);
-            FsCb.TabIndex = 7;
-            FsCb.SelectionChangeCommitted +=  FsCb_SelectionChangeCommitted ;
-            // 
-            // radioButton3
-            // 
-            radioButton3.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
-            radioButton3.AutoSize = true;
-            radioButton3.ForeColor = Color.White;
-            radioButton3.Location = new Point(561, 84);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(59, 24);
-            radioButton3.TabIndex = 6;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Italic";
-            radioButton3.UseVisualStyleBackColor = true;
-            radioButton3.CheckedChanged +=  radioButton3_CheckedChanged ;
-            // 
-            // radioButton2
-            // 
-            radioButton2.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
-            radioButton2.AutoSize = true;
-            radioButton2.ForeColor = Color.White;
-            radioButton2.Location = new Point(457, 83);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(58, 24);
-            radioButton2.TabIndex = 6;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Bold";
-            radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.CheckedChanged +=  radioButton2_CheckedChanged ;
-            // 
-            // radioButton1
-            // 
-            radioButton1.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
-            radioButton1.AutoSize = true;
-            radioButton1.ForeColor = Color.White;
-            radioButton1.Location = new Point(333, 83);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(78, 24);
-            radioButton1.TabIndex = 6;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Regular";
-            radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.CheckedChanged +=  radioButton1_CheckedChanged ;
-            // 
-            // FontCb
-            // 
-            FontCb.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
-            FontCb.FormattingEnabled = true;
-            FontCb.Location = new Point(333, 38);
-            FontCb.Name = "FontCb";
-            FontCb.Size = new Size(287, 28);
-            FontCb.TabIndex = 5;
-            FontCb.SelectionChangeCommitted +=  FontCb_SelectionChangeCommitted ;
-            // 
             // SavButton
             // 
             SavButton.Anchor =    AnchorStyles.Bottom  |  AnchorStyles.Right ;
@@ -285,30 +216,6 @@ namespace Json_Editor
             label8.TabIndex = 0;
             label8.Text = "Mod Folder";
             // 
-            // label6
-            // 
-            label6.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 14.25F);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(6, 120);
-            label6.Name = "label6";
-            label6.Size = new Size(88, 25);
-            label6.TabIndex = 0;
-            label6.Text = "Font Size";
-            // 
-            // label5
-            // 
-            label5.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 14.25F);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(6, 83);
-            label5.Name = "label5";
-            label5.Size = new Size(93, 25);
-            label5.TabIndex = 0;
-            label5.Text = "Font Type";
-            // 
             // label4
             // 
             label4.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
@@ -317,37 +224,50 @@ namespace Json_Editor
             label4.ForeColor = Color.White;
             label4.Location = new Point(6, 41);
             label4.Name = "label4";
-            label4.Size = new Size(104, 25);
+            label4.Size = new Size(113, 25);
             label4.TabIndex = 0;
-            label4.Text = "Editor Font";
+            label4.Text = "Editor Font :";
+            // 
+            // colorDialog1
+            // 
+            colorDialog1.FullOpen = true;
+            colorDialog1.SolidColorOnly = true;
+            // 
+            // fontDialog1
+            // 
+            fontDialog1.ShowEffects = false;
             // 
             // Fonts
             // 
             Fonts.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
+            Fonts.Controls.Add(Lfn);
             Fonts.Controls.Add(button1);
             Fonts.Controls.Add(label4);
-            Fonts.Controls.Add(FsCb);
-            Fonts.Controls.Add(label5);
-            Fonts.Controls.Add(radioButton3);
-            Fonts.Controls.Add(label6);
-            Fonts.Controls.Add(radioButton2);
-            Fonts.Controls.Add(FontCb);
-            Fonts.Controls.Add(radioButton1);
             Fonts.ForeColor = Color.White;
             Fonts.Location = new Point(12, 272);
             Fonts.Name = "Fonts";
-            Fonts.Size = new Size(756, 174);
+            Fonts.Size = new Size(756, 102);
             Fonts.TabIndex = 8;
             Fonts.TabStop = false;
             Fonts.Text = "Fonts";
             // 
+            // Lfn
+            // 
+            Lfn.AutoSize = true;
+            Lfn.Location = new Point(137, 47);
+            Lfn.Name = "Lfn";
+            Lfn.Size = new Size(26, 20);
+            Lfn.TabIndex = 9;
+            Lfn.Text = "lfn";
+            // 
             // button1
             // 
-            button1.Location = new Point(652, 44);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(715, 43);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(28, 24);
             button1.TabIndex = 8;
-            button1.Text = "button1";
+            button1.Text = "...";
             button1.UseVisualStyleBackColor = true;
             button1.Click +=  button1_Click_1 ;
             // 
@@ -467,6 +387,7 @@ namespace Json_Editor
             Controls.Add(SavButton);
             Name = "Project_Settings";
             Text = "settings";
+            FormClosing +=  Project_Settings_FormClosing ;
             Load +=  Project_Settings_Load ;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -483,8 +404,6 @@ namespace Json_Editor
         private GroupBox groupBox1;
         private Label label8;
         private Label label7;
-        private Label label6;
-        private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
@@ -496,11 +415,6 @@ namespace Json_Editor
         private Label Lnbc;
         private Label Lnc;
         private FontDialog fontDialog1;
-        private ComboBox FontCb;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private ComboBox FsCb;
         private GroupBox Fonts;
         private GroupBox groupBox2;
         private TextBox textBox3;
@@ -513,5 +427,6 @@ namespace Json_Editor
         private Button Set_mod_Folder;
         private Label label11;
         private Button button1;
+        private Label Lfn;
     }
     }

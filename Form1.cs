@@ -135,18 +135,13 @@ namespace Json_Editor
                     selectedTabPage.Controls.ToString();
                     if (selectedTabPage.Controls["scintilla1"] is Scintilla Ntbs)
                     {
-                       // MessageBox.Show(errorMessage);
+                        // MessageBox.Show(errorMessage);
                         if (Ntbs.CurrentLine < lineNumber)
                         {
-
-
                             Ntbs.LineScroll(( lineNumber - Ntbs.CurrentLine - 1 ), 0);
-
-
                         }
                         else
                         {
-
                             Ntbs.LineScroll(-( Ntbs.CurrentLine - lineNumber + 1 ), 0);
                         }
                     }
@@ -238,13 +233,12 @@ namespace Json_Editor
 
             {
                 this.Refresh();
-
                 MessageBox.Show("Settings Applied");
 
                 foreach (sc_editor tab in enhanced_Tab_Control1.TabPages)
                 {
-                    tab.UiStyling();    
-
+                    tab.UiStyling();
+                    tab.jsonStyling();
                 }
             }
         }

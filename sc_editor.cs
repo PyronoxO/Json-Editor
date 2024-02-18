@@ -1,22 +1,9 @@
 ﻿using AutocompleteMenuNS;
-using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using ScintillaNET;
 using ScintillaNET_FindReplaceDialog;
-using System.IO;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows;
-using VPKSoft.ScintillaLexers.CreateSpecificLexer;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Json_Editor
 {
@@ -40,7 +27,7 @@ namespace Json_Editor
             scintilla1.ExtraAscent = 5;
             scintilla1.Font = new Font("Verdana", 11.25F);
             scintilla1.IndentationGuides = ScintillaNET.IndentView.LookForward;
-            scintilla1.LexerName = null;
+            //scintilla1.LexerName = null;
             scintilla1.ScrollWidth = 49;
             scintilla1.TabIndents = true;
             scintilla1.TabIndex = 8;
@@ -122,15 +109,15 @@ namespace Json_Editor
 
         private int maxLineNumberCharLength;
 
-        public void UpdateLineNumberMarginWidth(ref int maxLineNumberCharLength) // Display Line Numbers
+        public void UpdateLineNumberMarginWidth(int maxLineNumberCharLength) // Display Line Numbers
 
         {
-            var currentLineNumberCharLength = scintilla1.Lines.Count.ToString().Length;
-            if (currentLineNumberCharLength == maxLineNumberCharLength)
+            maxLineNumberCharLength = scintilla1.Lines.Count.ToString().Length;
+            if (maxLineNumberCharLength == this.maxLineNumberCharLength)
                 return;
             const int padding = 2;
-            scintilla1.Margins[0].Width = scintilla1.TextWidth(Style.LineNumber, new string('5', currentLineNumberCharLength + 1)) + padding;
-            maxLineNumberCharLength = currentLineNumberCharLength;
+            scintilla1.Margins[0].Width = scintilla1.TextWidth(Style.LineNumber, new string('9', maxLineNumberCharLength + 1)) + padding;
+            this.maxLineNumberCharLength = maxLineNumberCharLength;
         }
 
         public void UpdateLineNumbers(int startingAtLine)
@@ -140,7 +127,7 @@ namespace Json_Editor
             for (int i = startingAtLine; i < scintilla1.Lines.Count; i++)
             {
                 scintilla1.Lines[i].MarginStyle = Style.LineNumber;
-                scintilla1.Lines[i].MarginText = i.ToString();
+                scintilla1.Lines[i].MarginText = "0x" + i.ToString("X2");
             }
         }
 
@@ -230,7 +217,7 @@ namespace Json_Editor
 
         private void Scintilla_TextChanged(object sender, EventArgs e) // Display Line Numbers
         {
-            UpdateLineNumberMarginWidth(ref maxLineNumberCharLength);
+            UpdateLineNumberMarginWidth(maxLineNumberCharLength);
             UpdateLineNumbers(1);
             //UiStyling();
         }
@@ -592,76 +579,70 @@ namespace Json_Editor
             }
         }
 
-        private void jsonStyling()
+        public void jsonStyling()
 
         {
-            //scintilla1.StyleClearAll();
-
             // Configure thejson style
 
-            scintilla1.LexerName = "json";
+            scintilla1.StyleResetDefault();
 
+            string? Fnt = Properties.Settings1.Default.DeFont.OriginalFontName;
+            scintilla1.Styles[Style.Default].Font = Fnt;
+            scintilla1.Styles[Style.Default].SizeF = Properties.Settings1.Default.DeFont.Size;
+            scintilla1.Styles[Style.Default].Italic = Properties.Settings1.Default.DeFont.Italic;
+            scintilla1.Styles[Style.Default].Bold = Properties.Settings1.Default.DeFont.Bold;
+            scintilla1.Styles[Style.Default].BackColor = Properties.Settings1.Default.EditorBC;
+            scintilla1.StyleClearAll();
+            scintilla1.StyleClearAll();
+            scintilla1.LexerName = "json";
             scintilla1.SetKeywords(0, "false true");
             scintilla1.SetProperty("lexer.json.allow.comments", "1");
             scintilla1.SetProperty("lexer.json.escape.sequence", "1");
             scintilla1.Styles[Style.Json.Default].ForeColor = Color.Turquoise;
-            scintilla1.Styles[Style.Json.Default].BackColor = Color.FromArgb(63, 63, 63);
             scintilla1.Styles[Style.Json.LineComment].ForeColor = Color.FromArgb(0, 128, 0); // Green
-            scintilla1.Styles[Style.Json.LineComment].BackColor = Color.FromArgb(63, 63, 63);
             scintilla1.Styles[Style.Json.Number].ForeColor = Color.OrangeRed;
-            scintilla1.Styles[Style.Json.Number].BackColor = Color.FromArgb(63, 63, 63);
-
             scintilla1.Styles[Style.Json.String].ForeColor = Color.LightSkyBlue;
-            scintilla1.Styles[Style.Json.String].BackColor = Color.FromArgb(63, 63, 63);
             scintilla1.Styles[Style.Json.EscapeSequence].ForeColor = Color.LightBlue;
-            scintilla1.Styles[Style.Json.EscapeSequence].BackColor = Color.FromArgb(63, 63, 63);
             //Brackets colors
             scintilla1.Styles[Style.Json.Operator].ForeColor = Color.Yellow;
-            scintilla1.Styles[Style.Json.Operator].BackColor = Color.FromArgb(63, 63, 63);
             scintilla1.Styles[Style.Json.Operator].Bold = true;
             //property name
-            scintilla1.Styles[Style.Json.PropertyName].BackColor = Color.FromArgb(63, 63, 63);
             scintilla1.Styles[Style.Json.PropertyName].ForeColor = Color.AliceBlue;//LightBlue;
             scintilla1.Styles[Style.Json.PropertyName].Italic = true;
-
-            scintilla1.Styles[Style.Json.Keyword].BackColor = Color.FromArgb(63, 63, 63);
+            //Keywords
             scintilla1.Styles[Style.Json.Keyword].ForeColor = Color.Green;
-
-            scintilla1.Styles[Style.Json.Error].BackColor = Color.FromArgb(63, 63, 63);
+            //Errors
             scintilla1.Styles[Style.Json.Error].ForeColor = Color.Red;
-
-            scintilla1.Styles[Style.BraceLight].BackColor = Color.FromArgb(63, 63, 63);
+            //Braces colors
             scintilla1.Styles[Style.BraceLight].ForeColor = Color.Orange;
             scintilla1.Styles[Style.BraceBad].ForeColor = Color.Red;
-            scintilla1.IndentationGuides = IndentView.LookForward;
-            CreateLexerCommon.AddFolding(scintilla1);
+
+            scintilla1.Styles[Style.Json.LineComment].ForeColor = Color.FromArgb(0, 128, 0); // Green
+
+            scintilla1.Styles[Style.Json.Number].ForeColor = Color.OrangeRed;
+
+            scintilla1.Styles[Style.Json.String].ForeColor = Color.LightSkyBlue;
+
+            scintilla1.Styles[Style.Json.EscapeSequence].ForeColor = Color.LightBlue;
+            //Brackets colors
+            scintilla1.Styles[Style.Json.Operator].ForeColor = Color.Yellow;
+            scintilla1.Styles[Style.Json.Operator].Bold = true;
+            //property name
+            scintilla1.Styles[Style.Json.PropertyName].ForeColor = Color.AliceBlue;//LightBlue;
+            scintilla1.Styles[Style.Json.PropertyName].Italic = true;
+            //Keywords
+            scintilla1.Styles[Style.Json.Keyword].ForeColor = Color.Green;
+            //Errors
+            scintilla1.Styles[Style.Json.Error].ForeColor = Color.Red;
+            //Braces colors
+            scintilla1.Styles[Style.BraceLight].ForeColor = Color.Orange;
+            scintilla1.Styles[Style.BraceBad].ForeColor = Color.Red;
 
             // Set the keywords
         }
 
-        private bool applyUiStyling = true;
-
-        public bool ApplyUiStyling
-        {
-            get { return applyUiStyling; }
-            set
-            {
-                if (applyUiStyling != value)
-                {
-                    applyUiStyling = value;
-
-                    // If ApplyUiStyling is set to true, execute UiStyling
-                    if (applyUiStyling)
-                    {
-                        UiStyling();
-                    }
-                }
-            }
-        }
-
         public void UiStyling()
         {
-            scintilla1.StyleResetDefault();
             scintilla1.CaretStyle = ScintillaNET.CaretStyle.Line;
 
             string caretStyleValue = Properties.Settings1.Default.CaretStyle; // Get the value from the settings
@@ -685,20 +666,16 @@ namespace Json_Editor
                     break;
             }
 
+            scintilla1.Margins[1].BackColor = Properties.Settings1.Default.MarginBackcolor;
+            scintilla1.Margins[0].Type = MarginType.Number;
             scintilla1.Margins[0].BackColor = Properties.Settings1.Default.MarginBackcolor;
-            scintilla1.Styles[Style.Default].BackColor = Properties.Settings1.Default.uEditorBC;
-
-            //scintilla1.Styles[Style.Default].Bold = Properties.Settings1.Default.uFontStyleb;
-            //scintilla1.Styles[Style.Default].Italic = Properties.Settings1.Default.uFontStylei;
-            //scintilla1.Styles[Style.Default].Font = Properties.Settings1.Default.uFont;
-
-            scintilla1.Font = Properties.Settings1.Default.DeFont;
-            
-
-
-            scintilla1.Styles[Style.Default].Size = Properties.Settings1.Default.uFontSize;
             scintilla1.Styles[Style.LineNumber].BackColor = Properties.Settings1.Default.uLineNumBc; //Color.FromArgb(12, 12, 12);
             scintilla1.Styles[Style.LineNumber].ForeColor = Properties.Settings1.Default.uLineNumFc; //Color.Red;
+            scintilla1.Styles[Style.LineNumber].Font = "Algerian";    //Properties.Settings1.Default.DeFont.OriginalFontName;
+            scintilla1.Styles[Style.LineNumber].SizeF = 16;
+            scintilla1.Styles[Style.IndentGuide].ForeColor = Color.Aquamarine;
+
+            //scintilla1.StyleClearAll();
         }
 
         private static void ExpandAllNodes(TreeNodeCollection nodes)
