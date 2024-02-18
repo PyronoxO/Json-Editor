@@ -28,10 +28,31 @@ namespace Json_Editor
             Ebc.BackColor = Properties.Settings1.Default.EditorBC;
             Lnc.BackColor = Properties.Settings1.Default.uLineNumFc;
             Lnbc.BackColor = Properties.Settings1.Default.uLineNumBc;
-            Lfn.Text = ( Properties.Settings1.Default.DeFont.OriginalFontName + " " + "Click To Change" );
+            Lfnt.Text = ( Properties.Settings1.Default.DeFont.OriginalFontName + " " + "Click To Change" );
         }
 
         #region Control Handlers
+
+       private void CaretCb_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (CaretCb.SelectedText == "Block")
+            {
+                Properties.Settings1.Default.CaretStyle = "Block";
+            }
+            else if (CaretCb.SelectedText == "Line")
+            {
+                Properties.Settings1.Default.CaretStyle = "Line";
+            }
+            else
+            {
+                Properties.Settings1.Default.CaretStyle = "Invisible";
+
+            }
+
+        }
+
+
+
 
         private void SavButton_Click(object sender, EventArgs e)
         {

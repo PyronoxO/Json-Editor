@@ -46,12 +46,10 @@ namespace Json_Editor
             label2 = new Label();
             SavButton = new Button();
             label8 = new Label();
-           
             label4 = new Label();
             colorDialog1 = new ColorDialog();
             fontDialog1 = new FontDialog();
             Fonts = new GroupBox();
-            Lfn = new Label();
             button1 = new Button();
             groupBox2 = new GroupBox();
             UU_Folder = new Button();
@@ -62,6 +60,7 @@ namespace Json_Editor
             textBox1 = new TextBox();
             label10 = new Label();
             label9 = new Label();
+            label5 = new Label();
             groupBox1.SuspendLayout();
             Fonts.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -218,18 +217,6 @@ namespace Json_Editor
             label8.TabIndex = 0;
             label8.Text = "Mod Folder";
             // 
-            // Lfn
-            // 
-            Lfn.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
-            Lfn.AutoSize = true;
-            Lfn.Font = new Font("Segoe UI", 14.25F);
-            Lfn.ForeColor = Color.White;
-            Lfn.Location = new Point(125, 41);
-            Lfn.Name = "Lfn";
-            Lfn.Size = new Size(93, 25);
-            Lfn.TabIndex = 0;
-            Lfn.Text = "Font Type";
-            // 
             // label4
             // 
             label4.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
@@ -254,10 +241,9 @@ namespace Json_Editor
             // Fonts
             // 
             Fonts.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right ;
-            Fonts.Controls.Add(Lfn);
+            Fonts.Controls.Add(label5);
             Fonts.Controls.Add(button1);
             Fonts.Controls.Add(label4);
-            Fonts.Controls.Add(Lfn);
             Fonts.ForeColor = Color.White;
             Fonts.Location = new Point(12, 272);
             Fonts.Name = "Fonts";
@@ -265,15 +251,6 @@ namespace Json_Editor
             Fonts.TabIndex = 8;
             Fonts.TabStop = false;
             Fonts.Text = "Fonts";
-            // 
-            // Lfn
-            // 
-            Lfn.AutoSize = true;
-            Lfn.Location = new Point(137, 47);
-            Lfn.Name = "Lfn";
-            Lfn.Size = new Size(26, 20);
-            Lfn.TabIndex = 9;
-            Lfn.Text = "lfn";
             // 
             // button1
             // 
@@ -390,6 +367,15 @@ namespace Json_Editor
             label9.TabIndex = 0;
             label9.Text = "Unpacked Game Data";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(163, 47);
+            label5.Name = "label5";
+            label5.Size = new Size(34, 20);
+            label5.TabIndex = 9;
+            label5.Text = "Lfnt";
+            // 
             // Project_Settings
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -419,7 +405,6 @@ namespace Json_Editor
         private GroupBox groupBox1;
         private Label label8;
         private Label label7;
-        private Label Lfn;
         private Label label4;
         private Label label3;
         private Label label2;
@@ -443,6 +428,6 @@ namespace Json_Editor
         private Button Set_mod_Folder;
         private Label label11;
         private Button button1;
-        private Label Lfn;
+        private Label label5;
     }
     }
