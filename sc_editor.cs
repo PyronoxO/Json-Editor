@@ -678,7 +678,7 @@ namespace Json_Editor
                     break;
             }
 
-            scintilla1.Margins[1].BackColor = Properties.Settings1.Default.MarginBackcolor;
+            scintilla1.Margins[0].BackColor = Properties.Settings1.Default.MarginBackcolor;
             scintilla1.Margins[0].Type = MarginType.Number;
             scintilla1.Margins[0].BackColor = Properties.Settings1.Default.MarginBackcolor;
             scintilla1.Styles[Style.LineNumber].BackColor = Properties.Settings1.Default.uLineNumBc; //Color.FromArgb(12, 12, 12);
